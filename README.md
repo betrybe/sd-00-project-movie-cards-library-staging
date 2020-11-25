@@ -47,6 +47,7 @@ Aqui você vai encontrar os detalhes de como estruturar o desenvolvimento do seu
 
 # Habilidades
 
+  Nesse projeto, você será capaz de:
   - Saber a melhor forma para instalar um gerenciador de pacotes
   - Inicializar um projeto em **React**
   - Utilizar JSX no **React**
