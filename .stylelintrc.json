@@ -1,4 +1,7 @@
 {
+  "plugins": [
+		"stylelint-order"
+	],
   "rules": {
     "at-rule-empty-line-before": "always",
     "at-rule-name-case": "lower",
@@ -57,6 +60,7 @@
     "linebreaks": "unix",
     "max-empty-lines": 2,
     "max-line-length": 90,
+    "max-lines-per-function": ["error", 30],
     "max-nesting-depth": 2,
     "media-feature-colon-space-after": "always",
     "media-feature-colon-space-before": "always",
@@ -81,6 +85,7 @@
     "number-leading-zero": "always",
     "number-max-precision": 3,
     "number-no-trailing-zeros": true,
+    "order/properties-alphabetical-order": true,
     "property-case": "lower",
     "property-no-unknown": true,
     "property-no-vendor-prefix": true,
@@ -108,7 +113,7 @@
     "selector-max-empty-lines": 0,
     "selector-max-id": 5,
     "selector-max-pseudo-class": 3,
-    "selector-max-specificity": 5,
+    "selector-max-specificity": "0,5,0",
     "selector-max-type": 5,
     "selector-max-universal": 3,
     "selector-no-qualifying-type": true,
@@ -128,8 +133,7 @@
     "unit-case": "lower",
     "unit-no-unknown": true,
     "value-keyword-case": "lower",
-    "value-list-comma-space-after": "always",
-    "value-list-comma-space-before": "always",
+    "value-list-comma-space-after": "always-single-line",
     "value-list-max-empty-lines": 0,
     "value-no-vendor-prefix": true
   }
