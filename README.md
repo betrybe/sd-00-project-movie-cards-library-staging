@@ -22,6 +22,7 @@ Aqui você vai encontrar os detalhes de como estruturar o desenvolvimento do seu
   - [Antes de começar a desenvolver:](#antes-de-começar-a-desenvolver)
   - [Durante o desenvolvimento](#durante-o-desenvolvimento)
   - [Depois de terminar o desenvolvimento](#depois-de-terminar-o-desenvolvimento)
+    - [Revisando um pull request](#revisando-um-pull-request)
 - [Como desenvolver](#como-desenvolver)
   - [Dica: desativanto testes](#dica-desativanto-testes)
   - [Dica: watch mode](#dica-watch-mode)
@@ -178,6 +179,13 @@ Se ainda houver alguma dúvida sobre como entregar seu projeto, [aqui tem um vid
 
 ⚠ Lembre-se que garantir que todas as _issues_ comentadas pelo CodeClimate estão resolvidas! ⚠
 
+### Revisando um pull request
+
+
+À medida que você e as outras pessoas que estudam na Trybe forem entregando os projetos, vocês receberão um alerta via Slack para também fazer a revisão dos Pull Requests dos seus colegas. Fiquem atentos às mensagens do "Pull Reminders" no Slack!
+
+Use o material que você já viu sobre [Code Review](https://course.betrybe.com/real-life-engineer/code-review/) para te ajudar a revisar os projetos que chegaram para você.
+
 ---
 
 # Como desenvolver
@@ -272,79 +280,139 @@ Ao executar os testes localmente, [Jest](https://jestjs.io/), a ferramenta que e
 
 Esse componente representará o cabeçalho da página.
 
+**O que será verificado:**
+
+  - O componente `Header` é renderizado sem quebrar a aplicação.
+
 ### 2 - Renderize o texto "Movie Cards Library" dentro de `Header`
 
 O texto deverá estar dentro de uma tag `h1`, que por sua vez deve estar dentro de uma tag `header`.
+
+**O que será verificado:**
+
+  - O texto "Movie Cards Library" está dentro de uma tag `h1`.
+  - O `h1` deve ser renderizado pelo componente `Header`.
 
 ### 3 - Crie um componente chamado `MovieList`
 
 Este componente representará toda a área com os cartões de filmes. `MovieList` deve receber uma prop `movies`, que é um array de objetos com informações de um filme.
 
+**O que será verificado:**
+
+  - O componente `MovieList` é renderizado sem quebrar a aplicação.
+
 ### 4 - Renderize componentes `MovieCard` dentro de `MovieList`
 
 `MovieList` deve renderizar um componente `MovieCard` para cada objeto contido no array recebido na prop `movies`.
+
+**O que será verificado:**
+
+  - O componente `MovieList` renderiza a quantidade correta de `MovieCard`.
 
 ### 5 - Passe uma key para cada `MovieCard` renderizado
 
 `MovieList` deve renderizar `MovieCard`s de forma dinâmica. Ou seja, deve utilizar a função `map` para renderizar uma lista. Cada componente `MovieCard` deve receber uma prop `key` com o nome do filme.
 
+**O que será verificado:**
+
+ - Cada `MovieCard` renderizado tem como `key` o título do filme.
+
 ### 6 - Crie um componente chamado `MovieCard`
 
 Esse componente representa um cartão de filme. `MovieCard` deve receber uma prop `movie`. Essa prop será um objeto, contendo as propriedades, `title`, `subtitle`, `storyline`, `imagePath` e `rating`.
+
+**O que será verificado:**
+
+  - O componente `MovieCard` é renderizado sem quebrar a aplicação.
 
 ### 7 - Renderize a imagem do filme
 
 `MovieCard` deve renderizar uma tag `img`, tendo como atributo `src` o valor da propriedade `imagePath` do objeto recebido como prop.
 
+**O que será verificado:**
+
+  - A imagem é renderizada dentro de uma tag `img`.
+  - O atributo `src` da imagem deve ter o valor de `imagePath`.
+
 ### 8 - Renderize o título do filme
 
 `MovieCard` deve renderizar o título do filme dentro de uma tag `h4`. O título está contido na propriedade `title` do objeto recebido como prop.
+
+**O que será verificado:**
+
+  - O título do filme é renderizado dentro de uma tag `h4`.
 
 ### 9 - Renderize o subtítulo do filme
 
 `MovieCard` deve renderizar o subtítulo do filme dentro de uma tag `h5`. O subtítulo está contido na propriedade `subtitle` do objeto recebido como prop.
 
+**O que será verificado:**
+
+  - O subtítulo do filme é renderizado dentro de uma tag `h5`.
+
 ### 10 - Renderize a sinopse do filme
 
 `MovieCard` deve renderizar a sinopse do filme dentro de uma tag `p`. A sinopse está contida na propriedade `storyline` do objeto recebido como prop.
+
+**O que será verificado:**
+
+  - A sinopse do filme é renderizada dentro de uma tag `p`.
 
 ### 11 - Renderize um componente `Rating` dentro de `MovieCard`
 
 `MovieCard` deve renderizar um componente `Rating`.
 
+**O que será verificado:**
+
+  - O componente `Rating` é renderizado pelo `MovieCard`.
+
 ### 12 - Passe como prop para o componente `Rating` o atributo `rating`
 
 `MovieCard` deve passar para o componente `Rating` uma prop chamada `rating`. O valor dessa prop é a propriedade `rating` do objeto recebido na prop `movie`.
+
+**O que será verificado:**
+
+  - O componente `Rating` recebe uma `prop` chamada `rating`.
+  - O valor da *prop* `rating` é a propriedade `rating` do filme.
 
 ### 13 - Crie um componente chamado `Rating`
 
 Esse componente representa a avaliação de um filme.
 
+**O que será verificado:**
+
+  - O componente `Rating` é renderizado sem quebrar a aplicação.
+
 ### 14 - Renderize a nota de um filme dentro de `Rating`
 
 `Rating` deve renderizar a nota do filme recebido na prop `rating` dentro de um elemento com a classe `rating`.
+
+**O que será verificado:**
+
+  - O componente `Rating` é renderizado dentro de um elemento com a classe `rating`.
 
 ### 15 - `App` deve renderizar `Header`
 
 O componente `App` deve renderizar um componente `Header`.
 
+**O que será verificado:**
+
+  - Apenas um componente `Header` é renderizado pelo componente `App`.
+
 ### 16 - `App` deve renderizar `MovieList`
 
 O componente `App` deve renderizar um componente `MovieList`, passando como prop `movies` a lista de filmes contida no arquivo `data.js`. Para isso, você precisará importar `data.js` dentro de `App.js`.
+
+**O que será verificado:**
+
+  - Apenas um componente `MovieList` é renderizado pelo componente `App`.
+  - `MovieList` recebe como *prop* `movie` a lista do arquivo `data.js`
 
 ### 17 - Adicione proptypes a todos os componentes
 
 Todos os compontens que recebem props devem ter suas proptypes corretamente declaradas. O eslint checa automaticamente declaração de proptypes, portanto seu Pull Request deverá passar no Code Climate para satisfazer esse requisito.
 
 ---
-
-<!-- # Revisando um pull request
-
-⚠⚠⚠
-
-À medida que você e as outras pessoas que estudam na Trybe forem entregando os projetos, vocês receberão um alerta via Slack para também fazer a revisão dos Pull Requests dos seus colegas. Fiquem atentos às mensagens do "Pull Reminders" no Slack!
-
-Use o material que você já viu sobre [Code Review](https://course.betrybe.com/real-life-engineer/code-review/) para te ajudar a revisar os projetos que chegaram para você. -->
 
 # Avisos Finais
 
