@@ -9,7 +9,7 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
-        <MovieList movies={movies} />
+        <MovieList movies={ movies } />
       </div>
     );
   }
