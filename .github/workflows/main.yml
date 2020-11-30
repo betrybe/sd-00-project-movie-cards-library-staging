@@ -7,27 +7,23 @@ jobs:
     runs-on: ubuntu-18.04
     name: Evaluator job
     steps:
+      - uses: actions/checkout@v2
       - uses: actions/setup-node@v1.4.4
         with:
           node-version: '12'
       - name: Static code analysis step
-        uses: betrybe/stylelint-linter-action@v1
+        uses: betrybe/eslint-linter-action@v2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-      - name: Static code analysis step
-        uses: betrybe/eslint-linter-action@v2.1
+      - name: Evaluator step
+        id: evaluator
+        uses: betrybe/react-scripts-evaluator-action@v4
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-      - uses: actions/checkout@v2
-        if: steps.wait-for-build.outputs.conclusion == 'success'
-      - name: React Scripts evaluator step
-        id: react-scripts
-        uses: betrybe/react-scripts-evaluator-action@v1
-        if: steps.wait-for-build.outputs.conclusion == 'success'
+          repository-test-name: 'betrybe/sd-0x-block12-project-movie-cards-library-tests'
+          repository-test-branch: 'master'
       - name: Store evaluation step
-        uses: betrybe/store-evaluation-action@v1
-        if: steps.wait-for-build.outputs.conclusion == 'success'
+        uses: betrybe/store-evaluation-action@v2
         with:
-          evaluation-data: ${{ steps.react-scripts.outputs.result }}
+          evaluation-data: ${{ steps.evaluator.outputs.result }}
           environment: staging
-          pr-number: ${{ steps.react-scripts.outputs.pr-number }}
+          pr-number: ${{ steps.evaluator.outputs.pr-number }}
