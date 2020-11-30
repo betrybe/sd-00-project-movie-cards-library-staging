@@ -14,13 +14,10 @@ jobs:
         uses: betrybe/stylelint-linter-action@v1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-      - name: Wait for build to succeed
-        uses: betrybe/action-wait-for-check@v2
-        id: wait-for-build
+      - name: Static code analysis step
+        uses: betrybe/eslint-linter-action@v2.1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          checkName: codeclimate
-          ref: ${{ github.event.pull_request.head.sha || github.sha }}
       - uses: actions/checkout@v2
         if: steps.wait-for-build.outputs.conclusion == 'success'
       - name: React Scripts evaluator step

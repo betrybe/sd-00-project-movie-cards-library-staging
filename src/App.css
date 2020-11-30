@@ -5,8 +5,8 @@ body {
 }
 
 .movie-card-header {
-  background-color: #343a40;
   align-items: center;
+  background-color: #343a40;
   display: flex;
   height: 100px;
   justify-content: center;
